@@ -76,7 +76,7 @@
 <body>
     <div id="map"></div>
     <div class='map-overlay' id='features'>
-        <h2>WA COVID-19 Cases - yippe</h2>
+        <h2>WA COVID-19 Cases - nice</h2>
         <div id='text-description'>
             <p>Hover over a County!</p>
         </div>
@@ -97,12 +97,12 @@
         async function geojsonFetch() { 
             
             let response = await fetch('assets/wa-covid-data-102521.geojson');
-            let stateData = await response.json();
+            let countyData = await response.json();
 
             map.on('load', function loadingData() {
-                map.addSource('lab4data', {
+                map.addSource('wa-covid-data-102521', {
                     type: 'geojson',
-                    data: lab4data
+                    data: countyData
                 });
 
                 map.addLayer({
@@ -177,7 +177,7 @@
 
             map.on('mousemove', ({point}) => {
                 const state = map.queryRenderedFeatures(point, {
-                    layers: ['stateData-layer']
+                    layers: ['countyData-layer']
                 });
                 document.getElementById('text-description').innerHTML = state.length ?
                     `<h3>${state[0].properties.name}</h3><p><strong><em>${state[0].properties.density}</strong> people per square mile</em></p>` :
