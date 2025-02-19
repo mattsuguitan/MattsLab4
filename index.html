@@ -76,7 +76,7 @@
 <body>
     <div id="map"></div>
     <div class='map-overlay' id='features'>
-        <h2>WA COVID-19 Cases</h2>
+        <h2>WA COVID-19 Cases legend</h2>
         <div id='text-description'>
             <p>Hover over a County!</p>
         </div>
@@ -110,39 +110,41 @@
                     'type': 'fill',
                     'source': 'wa-covid-data-102521',
                     'paint': {
+
                         'fill-color': [
                             'step',
-                            ['get', 'casePer10k'],
+                            ['get', 'density'],
                             '#FFEDA0',   // stop_output_0
-                            500,          // stop_input_0
+                            250,          // stop_input_0
                             '#FED976',   // stop_output_1
-                            1000,          // stop_input_1
+                            500,          // stop_input_1
                             '#FEB24C',   // stop_output_2
-                            1500,          // stop_input_2
+                            750,          // stop_input_2
                             '#FD8D3C',   // stop_output_3
-                            2000,         // stop_input_3
+                            1000,         // stop_input_3
                             '#FC4E2A',   // stop_output_4
-                            2500,         // stop_input_4
+                            1250,         // stop_input_4
                             '#E31A1C',   // stop_output_5
-                            3000,         // stop_input_5
+                            1500,         // stop_input_5
                             '#BD0026',   // stop_output_6
-                            3500,        // stop_input_6
+                            2000,        // stop_input_6
                             "#800026"    // stop_output_7
                         ],
+                        
                         'fill-outline-color': '#BBBBBB',
                         'fill-opacity': 0.7,
                     }
                 });
 
                 const layers = [
-                    '0-9',
-                    '10-19',
-                    '20-49',
-                    '50-99',
-                    '100-199',
-                    '200-499',
-                    '500-999',
-                    '1000 and more'
+                    '0-249',
+                    '250-499',
+                    '500-749',
+                    '750-999',
+                    '1000-1249',
+                    '1250-1499',
+                    '1500-1999',
+                    '2000 and more'
                 ];
                 const colors = [
                     '#FFEDA070',
@@ -157,7 +159,7 @@
 
 
                 const legend = document.getElementById('legend');
-                legend.innerHTML = "<b>Cases Per 10k<br>(people/sq.mi.)</b><br><br>";
+                legend.innerHTML = "<b>Cases Per 10k<br></b><br><br>";
 
                 layers.forEach((layer, i) => {
                     const color = colors[i];
