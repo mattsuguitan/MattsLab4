@@ -89,14 +89,14 @@
         const map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/light-v10', // style URL
-            zoom: 6, // starting zoom
+            zoom: 7, // starting zoom
             center: [-120.5, 47.5] // starting center
         });
 
 
         async function geojsonFetch() { 
             
-            let response = await fetch('assets/wa_covid-data-102421.geojson');
+            let response = await fetch('assets/wa-covid-data-102521.geojson');
             let stateData = await response.json();
 
             map.on('load', function loadingData() {
