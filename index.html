@@ -76,7 +76,7 @@
 <body>
     <div id="map"></div>
     <div class='map-overlay' id='features'>
-        <h2>WA COVID-19 Cases - BOOM</h2>
+        <h2>WA COVID-19 Cases</h2>
         <div id='text-description'>
             <p>Hover over a County!</p>
         </div>
@@ -180,8 +180,8 @@
                     layers: ['countyData-layer']
                 });
                 document.getElementById('text-description').innerHTML = state.length ?
-                    `<h3>${state[0].properties.name}</h3><p><strong><em>${state[0].properties.density}</strong> people per square mile</em></p>` :
-                    `<p>Hover over a state!</p>`;
+                    `<h3>${state[0].properties.name}</h3><p><strong><em>${state[0].properties.casePer10k}</strong> cases per 10k</em></p>` :
+                    `<p>Hover over a county!</p>`;
             });
 
         }
