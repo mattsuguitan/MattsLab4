@@ -182,7 +182,7 @@
                     layers: ['countyData-layer']
                 });
                 document.getElementById('text-description').innerHTML = state.length ?
-                    `<h3>${state[0].properties.name}</h3><p><strong><em>${state[0].properties.casePer10k}</strong> cases per 10k</em></p>` :
+                    `<h3>${state[0].properties.name}</h3><p><strong><em>${state[0].properties.casePer10k}</strong> cases per 10k people</em></p>` :
                     `<p>Hover over a county!</p>`;
             });
 
